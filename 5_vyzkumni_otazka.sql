@@ -1,6 +1,19 @@
 
-/* Výška HDP má vliv na zmeny cen ve mzdach a cen potravin.
+/* VÃ½Å¡ka HDP mÃ¡ vliv na zmeny cen ve mzdach a cen potravin.
  * Pokud HPD vzroste vyrazneji v jednom roce, projevi se to  ve stejnem roce minimalne na mzdach a nekdy i na cenach potravin. */
+
+create view goods as (
+
+	select distinct goods,year,average_goods_price as goods_price from t_dasa_kiss_project_sql_primary_final
+)
+
+
+create view industries as (
+
+	select distinct industry_name ,year,average_payroll  as payroll from t_dasa_kiss_project_sql_primary_final
+)
+
+
 
 
 
@@ -50,6 +63,6 @@ case
 	when difference_goods >0 and diffrence_industry <0 and diffrence_industry <0 then 'has effect on industries'
 	when difference_goods >0 and diffrence_industry <0 and diffrence_industry >0 then 'has effect on goods'
 	when difference_goods <0 and diffrence_industry >0 and diffrence_industry >0 then 'has effect on industries'
-	else 'doesn´t have effect'
+	else 'doesnÂ´t have effect'
 end as gdp_effect
 from differences
