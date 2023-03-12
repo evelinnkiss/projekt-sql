@@ -1,6 +1,6 @@
 # Project-SQL(MariaDB)
 
-Tabulky používane v projekte:
+### Tabulky používane v projekte:
 Primární tabulky:
 * czechia_payroll – Informace o mzdách v různých odvětvích za několikaleté období. Datová sada pochází z Portálu otevřených dat ČR.
 * czechia_payroll_calculation – Číselník kalkulací v tabulce mezd.
