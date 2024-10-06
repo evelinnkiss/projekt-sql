@@ -2,13 +2,14 @@
 
 
 
-select distinct 
-	industry_name, 
-	average_payroll as max_payroll,
-	year 
-from t_dasa_kiss_project_SQL_primary_final
-where average_payroll in ( 
-	select distinct 
-		MAX(average_payroll) over (partition by industry_name) as max_payroll
-	from t_dasa_kiss_project_SQL_primary_final
+SELECT DISTINCT 
+    industry_name, 
+    average_payroll AS max_payroll,
+    year 
+FROM t_dasa_kiss_project_SQL_primary_final
+WHERE 
+    average_payroll IN ( 
+        SELECT DISTINCT 
+            MAX(average_payroll) OVER (PARTITION BY industry_name) AS max_payroll
+        FROM t_dasa_kiss_project_SQL_primary_final
 	)
